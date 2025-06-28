@@ -1,1 +1,2 @@
 # Football-booking-website
+ web-based football field booking system that allows users to reserve pitches by selecting the date, time, and field type. A key feature of the system is the ability to schedule a match against another team, enabling users to either create a match request or join an existing one. The system includes booking forms to collect player information, a reservation management system, and an admin dashboard to monitor bookings and match requests. The project was developed using HTML, CSS, JavaScript for the frontend, and PHP with MySQL for the backend.
