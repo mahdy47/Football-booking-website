@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickNear Site</title> 
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <h1 class="tittle">Kick Near</h1>
+    <a class="insta" href="https://www.instagram.com/dvmnbodi/">
+        <img class="insta Logo" src="https://img.icons8.com/?size=100&id=RhYNENh5cxlS&format=png&color=000000"  alt="Logo" style="height: 50px; border-radius: 10px;">
+    </a>
+    <a class="face" href="https://www.facebook.com/abdelrahman.elmahdy.902/">
+        <img class="face-logo" src="https://img.icons8.com/?size=100&id=kQzCK4emnaD2&format=png&color=000000"  alt="Logo" style="height: 50px; border-radius: 10px;">
+    </a>
+    <a class="call" href="tel:+201026411847">
+        <img class="call-logo" src="https://img.icons8.com/?size=100&id=AJOqyBhNnjEu&format=png&color=000000"  alt="Logo" style="height: 50px; border-radius: 10px;">
+    </a>
+
+    <div class="container">
+        <form id="match-form">
+            <h2>Create or Join Match</h2>
+
+      
+            <input id="match-name" type="text" placeholder="Enter Match Name" required> 
+          
+            <input id="team-name" type="text" placeholder="Enter Your Team Name" required>
+            <input id="location" type="url" placeholder="Enter Match Location" required>
+            <input id="match-time" type="datetime-local" required>
+            <input id="players" type="number" placeholder="Enter Number of Players" required>
+            <input id="phone" type="number" placeholder="Enter Your Phone Number" required>
+            <select id="existing-matches">
+            <option value="">-- Select Match to Join --</option>
+            </select>
+
+            <input type="button" id="join-btn" value="Join Selected Match">
+            <input type="button" id="submit-btn" value="Create Match">
+        </form>
+    </div>
+
+    <div class="matches-section">
+        <h2>Upcoming Matches</h2>
+        <div id="matches-list"></div>
+       
+    </div>
+
+    <script src="project.js"></script>
+</body>
