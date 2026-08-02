@@ -23,9 +23,9 @@ window.SITE_CONFIG = {
             image: "",                                     // e.g. "assets/img/logo.png" (for type: "image")
             alt: ""                                        // Alt text for the logo image
         },
-        primaryColor: "#16a34a",                           // Main brand color (buttons, links, accents)
+        primaryColor: "#059669",                           // Main brand color (buttons, links, accents)
         secondaryColor: "#0f766e",                         // Secondary brand color (gradients)
-        accentColor: "#f59e0b"                             // Accent color (highlights, focus rings)
+        accentColor: "#fbbf24"                             // Accent color (highlights, focus rings)
     },
 
     /* ---------- Hero ---------- */

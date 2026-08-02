@@ -52,10 +52,23 @@
         return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     }
 
+    function hexToRgba(hex, alpha) {
+        let c = String(hex || "").replace("#", "");
+        if (!/^[0-9a-fA-F]{3}$|^[0-9a-fA-F]{6}$/.test(c)) return "rgba(5,150,105,0.10)";
+        if (c.length === 3) c = c.split("").map(function (x) { return x + x; }).join("");
+        const num = parseInt(c, 16);
+        const r = (num >> 16) & 255;
+        const g = (num >> 8) & 255;
+        const b = num & 255;
+        return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+    }
+
     function applyTheme() {
         const root = document.documentElement.style;
         root.setProperty("--color-primary", CFG.business.primaryColor);
         root.setProperty("--color-primary-dark", shade(CFG.business.primaryColor, -15));
+        root.setProperty("--color-primary-strong", shade(CFG.business.primaryColor, -28));
+        root.setProperty("--color-primary-tint", hexToRgba(CFG.business.primaryColor, 0.10));
         root.setProperty("--color-secondary", CFG.business.secondaryColor);
         root.setProperty("--color-accent", CFG.business.accentColor);
 
@@ -96,6 +109,56 @@
         $("footer-copy").textContent = "\u00A9 " + new Date().getFullYear() + " " + biz.name + ". All rights reserved.";
     }
 
+    /* ---------- hero extras (real config data only) ---------- */
+
+    function fmtClock(minutes) {
+        const h = Math.floor(minutes / 60);
+        const m = minutes % 60;
+        const p = h >= 12 ? "PM" : "AM";
+        const h12 = h % 12 === 0 ? 12 : h % 12;
+        return h12 + (m ? ":" + String(m).padStart(2, "0") : "") + " " + p;
+    }
+
+    function renderHeroExtras() {
+        const bk = CFG.booking || {};
+
+        const pills = $("hero-pills");
+        if (pills) {
+            const items = [];
+            if (bk.openHour != null && bk.closeHour != null) {
+                items.push("Open " + fmtClock(bk.openHour * 60) + " – " + fmtClock(bk.closeHour * 60));
+            }
+            if (bk.slotMinutes) {
+                items.push(bk.slotMinutes + "-min sessions");
+            }
+            if (bk.workingDays && bk.workingDays.length) {
+                const names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                items.push(bk.workingDays.map(function (d) { return names[d]; }).join("·"));
+            }
+            items.forEach(function (text) {
+                const span = document.createElement("span");
+                span.className = "hero-pill";
+                span.textContent = text;
+                pills.appendChild(span);
+            });
+        }
+
+        const chips = $("hero-card-slots");
+        if (chips) {
+            const open = (bk.openHour || 7) * 60;
+            const close = (bk.closeHour || 22) * 60;
+            const dur = bk.slotMinutes || 60;
+            let count = 0;
+            for (let start = open; start + dur <= close && count < 3; start += dur) {
+                const chip = document.createElement("span");
+                chip.className = "hero-chip";
+                chip.textContent = fmtClock(start);
+                chips.appendChild(chip);
+                count += 1;
+            }
+        }
+    }
+
     /* ---------- services ---------- */
 
     function renderServices() {
@@ -103,7 +166,7 @@
         grid.innerHTML = "";
         (CFG.services || []).forEach(function (s) {
             const card = document.createElement("article");
-            card.className = "service-card";
+            card.className = "service-card reveal";
 
             const ic = document.createElement("span");
             ic.className = "service-icon";
@@ -137,7 +200,7 @@
         grid.innerHTML = "";
         list.forEach(function (c) {
             const card = document.createElement("article");
-            card.className = "coach-card";
+            card.className = "coach-card reveal";
 
             const avatar = document.createElement("div");
             avatar.className = "coach-avatar";
@@ -176,7 +239,7 @@
         grid.innerHTML = "";
         list.forEach(function (p) {
             const card = document.createElement("article");
-            card.className = "pricing-card" + (p.highlight ? " is-featured" : "");
+            card.className = "pricing-card" + (p.highlight ? " is-featured" : "") + " reveal";
 
             if (p.highlight) {
                 const tag = document.createElement("span");
@@ -251,7 +314,7 @@
 
         items.forEach(function (item) {
             const el = document.createElement(item.href ? "a" : "div");
-            el.className = "contact-card";
+            el.className = "contact-card reveal";
             if (item.href) el.href = item.href;
 
             const ic = document.createElement("span");
@@ -293,16 +356,45 @@
         });
     }
 
+    /* ---------- reveal on scroll ---------- */
+
+    function initReveal() {
+        const els = document.querySelectorAll(".reveal");
+        if (!els.length) return;
+
+        if (!("IntersectionObserver" in window) ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            els.forEach(function (el) { el.classList.add("is-visible"); });
+            return;
+        }
+
+        const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+        els.forEach(function (el, i) {
+            el.style.setProperty("--d", (i % 4) * 60 + "ms");
+            io.observe(el);
+        });
+    }
+
     /* ---------- init ---------- */
 
     function init() {
         applyTheme();
         applyBranding();
+        renderHeroExtras();
         renderServices();
         renderCoaches();
         renderPricing();
         renderContact();
         setupNav();
+        initReveal();
         window.Booking.init();
     }
 

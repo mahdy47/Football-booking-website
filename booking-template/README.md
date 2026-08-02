@@ -7,8 +7,9 @@ This is a **white-label product**: every business detail (name, logo, colors, ph
 ## Features
 
 - **Landing page sections**: hero, services, coaches, pricing, booking and contact.
+- **Premium design system**: typography scale, spacing scale, layered shadows, smooth reveal-on-scroll and micro-interactions (respects `prefers-reduced-motion`).
 - **Online booking flow**: choose a service -> coach (optional) -> date -> time slot -> contact details -> confirm.
-- **Smart schedule**: time slots are generated from opening hours; past and already-booked slots are disabled automatically.
+- **Smart schedule**: time slots are generated from opening hours; past and already-booked slots are disabled automatically, with a visual legend (available / selected / booked).
 - **Schedule management**: all bookings are listed in the Schedule panel and can be cancelled by the owner.
 - **Form validation**: required fields, phone and email format checks, friendly error messages.
 - **Zero build step**: plain HTML, CSS and JavaScript. Open the folder and it works.
@@ -66,10 +67,12 @@ Everything a client needs to change is in **one file**: `assets/js/config.js`.
 | Services | `services[]` | Title, description and icon name |
 | Coaches | `coaches[]` | Name, role, bio, initials (avatar circle) - set `[]` to hide |
 | Pricing plans | `packages[]` | `price: 0` shows "Contact Us"; `highlight: true` features a card |
-| Opening hours / slots | `booking.*` | Daily open/close time, slot length, working days |
+| Opening hours / slots | `booking.*` | Daily open/close time, slot length, working days (also shown as hero pills) |
 | Storage | `database.provider` | `"local"` or `"supabase"` |
 
 > Tip: all text is rendered as plain text (no HTML), so write normal sentences.
+
+**Typography & layout** live in `assets/css/main.css` under `:root` — fonts (`--font-display`, `--font-body`), spacing scale (`--s1` … `--s20`), radii and shadows. Headings use the **Sora** Google font and body text uses **Inter**; to go fully offline or switch fonts, remove the two `<link>` font tags in `index.html` and change the font variables.
 
 ## Data Storage
 
