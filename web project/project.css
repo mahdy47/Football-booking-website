@@ -1,146 +1,267 @@
-.tittle {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    color: #34495e;  
-    background-color: #dcdcdc;  
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+/* KickNear - Football booking website */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-
-form h2{
-  font-family: Arial, Helvetica, sans-serif;
-  color: #ffffff;                   
-  background-color: #1e8449;
-  border-radius:20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  padding: 10px;
-
-}
-body{
-   
-    background-color: #1a723f;
-    font-family: Arial, Helvetica, sans-serif;
+body {
     margin: 0;
-    padding: 0;
-}
-.container {
-    height: 80vh;                 
-    display: flex;                 
-    justify-content: center;       
-    align-items: center;          
-    padding: 50px;
-  }
-  
-  form {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f4f7f5;
+    background: linear-gradient(160deg, #0f5c35 0%, #0a3d24 55%, #05271a 100%);
+    background-attachment: fixed;
     display: flex;
-    flex-direction: column;        
-    gap: 15px;                    
-    background-color:#ffffff;        
-    padding: 30px;
-    border-radius: 10px;           
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    width: 300px; 
-  }
-  form input {
-    border-radius: 10px;      
-    padding: 10px;            
-    border: 1px solid #797272 ; 
-    border-style: ridge;  
-  }
- 
-  form input[type="button"] {
-    background-color: #3498db; 
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    flex-direction: column;
 }
-  
+
+/* ---------- Header ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 16px 24px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tittle {
+    margin: 0;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.social-logo {
+    width: 26px;
+    height: 26px;
+    display: block;
+}
+
+/* ---------- Layout ---------- */
+.page {
+    flex: 1;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* ---------- Form ---------- */
+.container {
+    display: flex;
+    justify-content: center;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    gap: 16px;
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    padding: 28px 26px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
 
-
-form input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.matches-section {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.matches-section h2 {
+form h2 {
+    margin: 0 0 4px;
     text-align: center;
-    font-size: 24px;
+    font-size: 1.3rem;
+    color: #0f5c35;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e4efe7;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 0.82rem;
+    font-weight: bold;
     color: #34495e;
 }
 
+form input,
+form select {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    background: #fbfdfc;
+    border: 1px solid #cfd8d4;
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #1e8449;
+    box-shadow: 0 0 0 3px rgba(30, 132, 73, 0.2);
+}
+
+form select {
+    cursor: pointer;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #1e8449, #145a32);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(30, 132, 73, 0.35);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #1d6fa5;
+    border: 2px solid #3498db;
+}
+
+.btn-secondary:hover {
+    background: #3498db;
+    color: #ffffff;
+}
+
+/* ---------- Matches ---------- */
+.matches-section {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.matches-section h2 {
+    margin: 0 0 18px;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
 #matches-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
 }
 
 .match-item {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border-top: 4px solid #1e8449;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
 .match-item h3 {
-    font-size: 20px;
-    color: #2c3e50;
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    color: #145a32;
 }
 
 .match-item p {
-    font-size: 16px;
-    color: #7f8c8d;
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #5d6d7e;
+    line-height: 1.45;
 }
 
-.match-item button {
-    background-color: #3498db;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.match-item p strong {
+    color: #34495e;
 }
-.insta{
-    position: absolute;
-    top: 20px;
-    left: 30px;
+
+.match-item .teams-line {
+    font-weight: bold;
+    color: #2c3e50;
 }
- .face{
-    position: absolute;
-    top: 40px;
-    left: 10px;
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    padding: 20px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
 }
-.call{
-    position: absolute;
-    top: 40px;
-    left: 110px;
+
+/* ---------- Responsive ---------- */
+@media (min-width: 640px) {
+    #matches-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .page {
+        padding-top: 44px;
+    }
+
+    form {
+        padding: 32px 30px;
+    }
 }
