@@ -1,26 +1,48 @@
-# Sports Academy / Gym - Booking Website (White-Label Template)
+# Sports Academy / Gym — Booking Website Template
 
-A clean, fast, mobile-first booking website for a sports academy or gym. Customers can browse services, meet the coaches, view plans and **book a training session online** — no server or account needed.
+> **White-label, client-ready booking website.** Rebrand, deploy, deliver.
 
-This is a **white-label product**: every business detail (name, logo, colors, phone, email, services, coaches, pricing, opening hours) is configured from one file, so the same codebase can be resold and rebranded for each client.
+A premium, mobile-first booking website for sports academies and gyms. Visitors browse services, meet the coaches, view plans and **book a training session online** in seconds — no server, account, or build step required.
+
+This is a **commercial white-label product**: one codebase, rebranded per client from a single config file. The same project can be sold to gyms, football academies, dance studios, clinics and any appointment-based business.
+
+**Live demo:** https://booking-template-demo.vercel.app
+
+---
+
+## Screenshots
+
+| | |
+| --- | --- |
+| **Hero** | **Services & Coaches** |
+| ![Hero](screenshots/01-hero.png) | ![Services & Coaches](screenshots/02-services-coaches.png) |
+| **Booking flow** | **Schedule management** |
+| ![Booking flow](screenshots/03-booking-slots.png) | ![Schedule management](screenshots/04-schedule.png) |
+| **Mobile view** | **Full page** |
+| ![Mobile view](screenshots/05-mobile.png) | ![Full page](screenshots/06-full-page.png) |
+
+---
 
 ## Features
 
-- **Landing page sections**: hero, services, coaches, pricing, booking and contact.
-- **Premium design system**: typography scale, spacing scale, layered shadows, smooth reveal-on-scroll and micro-interactions (respects `prefers-reduced-motion`).
-- **Online booking flow**: choose a service -> coach (optional) -> date -> time slot -> contact details -> confirm.
-- **Smart schedule**: time slots are generated from opening hours; past and already-booked slots are disabled automatically, with a visual legend (available / selected / booked).
-- **Schedule management**: all bookings are listed in the Schedule panel and can be cancelled by the owner.
-- **Form validation**: required fields, phone and email format checks, friendly error messages.
-- **Zero build step**: plain HTML, CSS and JavaScript. Open the folder and it works.
-- **Theme via CSS variables**: brand colors are applied automatically from the config.
-- **Optional Supabase sync**: bookings can be shared across visitors with a free Supabase project (see below).
-- **Accessible & responsive**: keyboard-friendly, mobile-first, reduced-motion support.
+- **Landing page sections** — hero, services, coaches, pricing, booking and contact in one page.
+- **Premium design system** — typography scale, spacing scale, layered shadows, smooth reveal-on-scroll and micro-interactions that respect `prefers-reduced-motion`.
+- **Online booking flow** — service → coach (optional) → date → time slot → contact details → confirm.
+- **Smart schedule** — slots generated from opening hours; past and already-booked slots are disabled automatically, with a visual legend (available / selected / booked).
+- **Schedule management** — all bookings listed in the Schedule panel, cancellable by the owner.
+- **Form validation** — required fields, phone and email format checks, friendly error messages.
+- **Zero build step** — plain HTML, CSS and JavaScript. Open the folder and it works.
+- **Theme via CSS variables** — brand colors applied automatically from the config.
+- **Optional Supabase sync** — a shared schedule across visitors with a free Supabase project (see below).
+- **Accessible & responsive** — keyboard-friendly, mobile-first, no overflow at 375 / 768 / desktop widths.
 
-## Tech
+## Technologies Used
 
-- HTML5, CSS3 (flexbox, grid, CSS variables), vanilla JavaScript (ES6).
-- Persistence: `localStorage` by default; optional Supabase (REST API, no client library).
+- **HTML5, CSS3** — flexbox, grid, CSS custom properties (design tokens).
+- **Vanilla JavaScript (ES6)** — no frameworks, no dependencies.
+- **Persistence** — `localStorage` by default; optional **Supabase** via REST API (no client library).
+- **Fonts** — Sora (display) and Inter (body) from Google Fonts, with local fallbacks.
+- **Hosting** — deployable to any static host (Vercel, Netlify, GitHub Pages); a `vercel.json` is included.
 
 ## Project Structure
 
@@ -29,6 +51,7 @@ booking-template/
 ├── index.html              # Single-page site
 ├── vercel.json             # Vercel static site config
 ├── README.md               # This file
+├── screenshots/            # Marketing screenshots
 └── assets/
     ├── css/main.css        # Design system + all section styles
     └── js/
@@ -37,6 +60,28 @@ booking-template/
         ├── booking.js      # Booking engine (slots, validation, schedule)
         └── main.js         # Branding/theme application + section rendering
 ```
+
+## Customization Through `config.js`
+
+**Everything a client needs to change lives in one file:** `assets/js/config.js`.
+
+| Setting | Config key | Notes |
+| --- | --- | --- |
+| Business name | `business.name` | Also used as the browser tab title and footer |
+| Tagline | `business.tagline` | Shown near the logo and hero |
+| Logo | `business.logo` | `type: "text"` (name as logo) or `"image"` with a file path |
+| Brand colors | `business.primaryColor` / `secondaryColor` / `accentColor` | Applied as CSS variables across the site |
+| Hero text & buttons | `hero.*` | Headline, subtext and CTA labels |
+| Contact details | `contact.phone` / `whatsapp` / `email` / `address` / `hours` | Cards render only for filled values |
+| Services | `services[]` | Title, description and icon name |
+| Coaches | `coaches[]` | Name, role, bio, initials (avatar circle) — set `[]` to hide |
+| Pricing plans | `packages[]` | `price: 0` shows "Contact Us"; `highlight: true` features a card |
+| Opening hours / slots | `booking.*` | Daily open/close time, slot length, working days (also shown as hero pills) |
+| Storage | `database.provider` | `"local"` or `"supabase"` |
+
+> Tip: all text is rendered as plain text (no HTML), so write normal sentences.
+
+Typography and layout tokens live in `assets/css/main.css` under `:root` — fonts (`--font-display`, `--font-body`), spacing scale (`--s1` … `--s20`), radii and shadows. To go fully offline or swap fonts, remove the two `<link>` font tags in `index.html` and edit the font variables.
 
 ## Quick Start
 
@@ -52,33 +97,35 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-## Customizing for a Client
+## Deployment
 
-Everything a client needs to change is in **one file**: `assets/js/config.js`.
+The site is 100% static, so deployment is free and instant.
 
-| Setting | Config key | Notes |
-| --- | --- | --- |
-| Business name | `business.name` | Also used as the browser tab title and footer |
-| Tagline | `business.tagline` | Shown near the logo and hero |
-| Logo | `business.logo` | `type: "text"` (name as logo) or `"image"` with a file path |
-| Brand colors | `business.primaryColor` / `secondaryColor` / `accentColor` | Applied as CSS variables across the site |
-| Hero text & buttons | `hero.*` | Headline, subtext and CTA labels |
-| Contact details | `contact.phone` / `whatsapp` / `email` / `address` / `hours` | Cards render only for filled values |
-| Services | `services[]` | Title, description and icon name |
-| Coaches | `coaches[]` | Name, role, bio, initials (avatar circle) - set `[]` to hide |
-| Pricing plans | `packages[]` | `price: 0` shows "Contact Us"; `highlight: true` features a card |
-| Opening hours / slots | `booking.*` | Daily open/close time, slot length, working days (also shown as hero pills) |
-| Storage | `database.provider` | `"local"` or `"supabase"` |
+### Option A — Vercel Dashboard (recommended)
 
-> Tip: all text is rendered as plain text (no HTML), so write normal sentences.
+1. Push this folder to a GitHub repository.
+2. Go to [vercel.com](https://vercel.com/new) and click **Import** next to the repository.
+3. Framework preset: **Other**. Root directory: select `booking-template` (the folder with `index.html`).
+4. Click **Deploy**. No build command is needed.
 
-**Typography & layout** live in `assets/css/main.css` under `:root` — fonts (`--font-display`, `--font-body`), spacing scale (`--s1` … `--s20`), radii and shadows. Headings use the **Sora** Google font and body text uses **Inter**; to go fully offline or switch fonts, remove the two `<link>` font tags in `index.html` and change the font variables.
+### Option B — Vercel CLI
+
+```bash
+cd booking-template
+npx vercel deploy --prod
+```
+
+The site is served at `https://booking-template.vercel.app` (the project name comes from `vercel.json`). To connect a custom domain, add it in **Project Settings → Domains**.
+
+### Option C — Any static host
+
+Serve the folder as-is. `index.html` is the entry point.
 
 ## Data Storage
 
 ### Default: browser-only (localStorage)
 
-Bookings are saved in the visitor's browser under the key `booking-template.bookings`. This is the fastest way to demo or use the site for a single owner. Different visitors do **not** share the same schedule in this mode.
+Bookings are saved in the visitor's browser under the key `booking-template.bookings`. This is the fastest way to demo the site or use it for a single owner. Different visitors do **not** share the same schedule in this mode.
 
 ### Optional: Supabase (shared schedule)
 
@@ -118,7 +165,7 @@ create policy "public delete bookings"
   on bookings for delete using (true);
 ```
 
-3. Open **Project Settings -> API** and copy the **Project URL** and **anon public key**.
+3. Open **Project Settings → API** and copy the **Project URL** and **anon public key**.
 4. In `assets/js/config.js`, set:
 
 ```js
@@ -130,27 +177,18 @@ database: {
 }
 ```
 
-That's it. Bookings are now read from and written to Supabase. The anon key is designed to be safe in the browser; security is enforced by the Row Level Security policies above.
+That's it. Bookings are now read from and written to Supabase. The anon key is designed to be safe in the browser; access is enforced by the Row Level Security policies above.
 
-## Deploying to Vercel
+## Adapting for Different Businesses
 
-The site is 100% static, so deployment is free and instant.
+The template is content-driven, so it fits any appointment- or session-based business with zero code changes:
 
-### Option A - Vercel Dashboard (recommended)
+- **Sports academies & football clubs** — the included services, coaches and packages map directly.
+- **Gyms & fitness studios** — rename sections via `config.js`; slots become class times.
+- **Dance, martial arts, tennis** — same booking flow, rebranded colors and content.
+- **Clinics, salons, tutoring** — hide coaches with `coaches: []`, adjust pricing to your plans.
 
-1. Push this folder to a GitHub repository (or a new repo containing `booking-template/`).
-2. Go to [vercel.com](https://vercel.com/new) and click **Import** next to the repository.
-3. Framework preset: **Other**. Root directory: select `booking-template` (the folder with `index.html`).
-4. Click **Deploy**. No build command is needed.
-
-### Option B - Vercel CLI
-
-```bash
-cd booking-template
-npx vercel deploy --prod
-```
-
-The site is served at `https://booking-template.vercel.app` (the project name comes from `vercel.json`). To connect a custom domain, add it in **Project Settings -> Domains**.
+Because empty sections hide automatically and `price: 0` renders "Contact Us", a client can ship a complete site without inventing content.
 
 ## Security Notes
 
@@ -163,3 +201,4 @@ The site is served at `https://booking-template.vercel.app` (the project name co
 
 - The repository root (`web project/`) contains the original Football Booking demo and is **not** part of this product.
 - To resell: duplicate the `booking-template/` folder per client, edit `config.js`, and deploy each copy to its own Vercel project or domain.
+- This README is written to hand off as-is to a client or a buyer of the template.
