@@ -1,0 +1,6 @@
+{
+  "name": "football-booking-website",
+  "rewrites": [
+    { "source": "/", "destination": "/project.html" }
+  ]
+}
