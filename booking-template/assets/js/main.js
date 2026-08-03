@@ -107,7 +107,7 @@
         $("hero-secondary-cta").textContent = CFG.hero.secondaryCta || "View Matches";
 
         $("footer-brand").textContent = biz.name;
-        $("footer-copy").textContent = "\u00A9 " + new Date().getFullYear() + " " + biz.name + ". All rights reserved.";
+        $("footer-copy").textContent = "\u00A9 " + new Date().getFullYear() + " Abdelrahman El-Mahdy. All rights reserved.";
     }
 
     /* ---------- hero pills (from config) ---------- */

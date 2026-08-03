@@ -72,3 +72,9 @@ Football-booking-website/
 | ![Mobile view](booking-template/screenshots/05-mobile.png) | ![Full page](booking-template/screenshots/06-full-page.png) |
 
 **Live demo:** https://booking-template-demo.vercel.app
+
+## License
+
+Copyright © 2026 **Abdelrahman El-Mahdy**. All rights reserved.
+
+This project — including its code, design, and content — is protected by copyright law. You may view the source on GitHub, but copying, redistributing, reselling, or reusing it in any form is not permitted without the author's written consent. See [LICENSE](LICENSE) for details.
