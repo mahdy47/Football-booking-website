@@ -950,12 +950,16 @@ p {
     align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
+    min-width: 0;
 }
 
 .match-card-head h3 {
     font-size: 1.15rem;
     font-weight: 800;
     margin-bottom: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .match-status {
@@ -991,6 +995,9 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 7px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .match-card-meta span::before {
