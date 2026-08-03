@@ -62,4 +62,13 @@ Football-booking-website/
 
 ## Screenshots
 
-_Screenshots to be added._
+| | |
+| --- | --- |
+| **Hero** | **How it works & Matchboard** |
+| ![Hero](booking-template/screenshots/01-hero.png) | ![How it works & Matchboard](booking-template/screenshots/02-steps-matches.png) |
+| **Create a match** | **Join as Team B** |
+| ![Create a match](booking-template/screenshots/03-create-match.png) | ![Join as Team B](booking-template/screenshots/04-join-match.png) |
+| **Mobile view** | **Full page** |
+| ![Mobile view](booking-template/screenshots/05-mobile.png) | ![Full page](booking-template/screenshots/06-full-page.png) |
+
+**Live demo:** https://booking-template-demo.vercel.app
