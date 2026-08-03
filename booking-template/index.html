@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sports academy and gym booking website. Book training sessions online, meet the coaches and choose the right plan.">
+    <meta name="description" content="Football match organizer. Create a match with your team and let another team join as the opponent — all in one place.">
     <meta name="theme-color" content="#059669">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23059669'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='34' font-weight='bold' text-anchor='middle' fill='white'%3EA%3C/text%3E%3C/svg%3E">
-    <title>Sports Academy</title>
+    <title>Your League</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
@@ -22,12 +22,12 @@
                 <span class="nav-toggle-icon" aria-hidden="true"></span>
             </button>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#coaches">Coaches</a></li>
+                <li><a href="#how">How it works</a></li>
+                <li><a href="#matches">Matches</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#booking">Book a Session</a></li>
+                <li><a href="#join">Create &amp; Join</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="nav-cta"><a class="btn btn-primary btn-sm" href="#booking">Book Now</a></li>
+                <li class="nav-cta"><a class="btn btn-primary btn-sm" href="#join">Create a Match</a></li>
             </ul>
         </nav>
         <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
@@ -41,21 +41,24 @@
                     <h1 class="hero-headline" id="hero-headline"></h1>
                     <p class="hero-sub" id="hero-subtext"></p>
                     <div class="hero-cta">
-                        <a class="btn btn-primary btn-lg" href="#booking" id="hero-primary-cta">Book a Session</a>
-                        <a class="btn btn-ghost btn-lg" href="#pricing" id="hero-secondary-cta">View Packages</a>
+                        <a class="btn btn-primary btn-lg" href="#join" id="hero-primary-cta">Create a Match</a>
+                        <a class="btn btn-ghost btn-lg" href="#matches" id="hero-secondary-cta">View Matches</a>
                     </div>
-                    <div class="hero-pills" id="hero-pills" aria-label="Opening details"></div>
+                    <div class="hero-pills" id="hero-pills" aria-label="Highlights"></div>
                 </div>
                 <div class="hero-visual" aria-hidden="true">
                     <div class="hero-card">
                         <span class="hero-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v4"/><path d="m2 12 4 0"/><path d="m22 12-4 0"/><path d="m7 5 2 3"/><path d="m17 5-2 3"/><path d="m8 16-2 3"/><path d="m16 16 2 3"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 2 4 2"/><path d="m2 13 4 2"/><path d="m20 13 2 3"/><path d="m6.5 4 1 5"/><path d="m15.5 19 1 3"/><path d="m5.5 20 3-1"/><path d="m18 5 2-1"/><path d="m12 2 1 4"/><path d="m6 15 3-2"/><path d="m15 11 3 1"/></svg>
                         </span>
-                        <p class="hero-card-title" id="hero-card-title">Next session, booked in seconds</p>
-                        <div class="hero-card-slots" id="hero-card-slots" aria-hidden="true"></div>
+                        <p class="hero-card-title" id="hero-card-title">Match locked in seconds</p>
+                        <div class="hero-card-slots" id="hero-card-slots">
+                            <span class="hero-chip is-taken">Team A</span>
+                            <span class="hero-chip is-open">Team B — open</span>
+                        </div>
                         <div class="hero-card-slot">
                             <span class="hero-card-dot"></span>
-                            <span id="hero-card-slot">Pick a date and time</span>
+                            <span id="hero-card-slot">Create a match · find an opponent</span>
                         </div>
                         <div class="hero-card-bar"></div>
                         <div class="hero-card-bar hero-card-bar-short"></div>
@@ -66,121 +69,114 @@
             </div>
         </section>
 
-        <section id="services" class="section">
+        <section id="how" class="section">
             <div class="container">
                 <div class="section-head reveal">
-                    <p class="eyebrow">What we offer</p>
-                    <h2>Services</h2>
-                    <p class="section-sub" id="services-sub">Training programs built for every level.</p>
+                    <p class="eyebrow">How it works</p>
+                    <h2>Three easy steps</h2>
+                    <p class="section-sub" id="steps-sub">From posting a match to finding your opponent in minutes.</p>
                 </div>
-                <div class="services-grid" id="services-grid"></div>
+                <div class="services-grid" id="steps-grid"></div>
             </div>
         </section>
 
-        <section id="coaches" class="section section-alt">
+        <section id="matches" class="section section-alt">
             <div class="container">
                 <div class="section-head reveal">
-                    <p class="eyebrow">Meet the team</p>
-                    <h2>Coaches</h2>
-                    <p class="section-sub" id="coaches-sub">Experienced coaches ready to help you improve.</p>
+                    <p class="eyebrow">Matchboard</p>
+                    <h2>Upcoming Matches</h2>
+                    <p class="section-sub" id="matches-sub">Every match needs one opposing team — claim the open slot.</p>
                 </div>
-                <div class="coaches-grid" id="coaches-grid"></div>
+                <div class="matches-head">
+                    <h3>Open matches</h3>
+                    <span class="match-count" id="matches-count">0 matches</span>
+                </div>
+                <div class="matches-grid" id="matches-grid"></div>
+                <p class="empty-state" id="matches-empty" hidden>No matches yet — create the first one!</p>
             </div>
         </section>
 
-        <section id="pricing" class="section">
+        <section id="join" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="eyebrow">Play</p>
+                    <h2>Create or Join a Match</h2>
+                    <p class="section-sub" id="join-sub">Host a match with your team, or take the open slot in an existing one.</p>
+                </div>
+
+                <div class="join-layout">
+                    <form id="match-create-form" class="join-card card" novalidate>
+                        <h3>Create a Match</h3>
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="match-name">Match name</label>
+                                <input id="match-name" type="text" name="matchName" placeholder="e.g. Friday Night Derby" required>
+                            </div>
+                            <div class="field">
+                                <label for="match-team">Your team name</label>
+                                <input id="match-team" type="text" name="teamName" placeholder="e.g. City United" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="match-location">Location</label>
+                                <input id="match-location" type="text" name="location" placeholder="e.g. Green Park 3G pitch" required>
+                            </div>
+                            <div class="field">
+                                <label for="match-time">Date &amp; time</label>
+                                <input id="match-time" type="datetime-local" name="matchTime" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="match-players">Players per team</label>
+                                <input id="match-players" type="number" name="players" min="1" placeholder="e.g. 11" required>
+                            </div>
+                            <div class="field">
+                                <label for="match-phone">Contact phone</label>
+                                <input id="match-phone" type="tel" name="phone" placeholder="+20 100 000 0000" required>
+                            </div>
+                        </div>
+
+                        <p class="field-error" id="match-error" role="alert" hidden></p>
+
+                        <button id="match-submit" class="btn btn-primary btn-lg" type="submit">Create Match</button>
+                        <p class="field-hint" id="storage-hint">Matches are saved in this browser.</p>
+                    </form>
+
+                    <aside class="join-card card" aria-labelledby="join-title">
+                        <h3 id="join-title">Join a Match</h3>
+                        <p class="field-hint">Pick a match that is still open, add your team name, and take the opposing slot.</p>
+
+                        <div class="field">
+                            <label for="join-match">Available matches</label>
+                            <select id="join-match">
+                                <option value="">-- Select a match to join --</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="join-team">Your team name</label>
+                            <input id="join-team" type="text" placeholder="e.g. Riverside FC" required>
+                        </div>
+
+                        <button id="join-submit" class="btn btn-primary" type="button">Join Match</button>
+                        <p class="field-hint" id="join-hint">Each match accepts exactly one opposing team.</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section section-alt">
             <div class="container">
                 <div class="section-head reveal">
                     <p class="eyebrow">Plans</p>
                     <h2>Pricing</h2>
-                    <p class="section-sub" id="pricing-sub">Simple plans with no hidden fees.</p>
+                    <p class="section-sub" id="pricing-sub">Simple plans for teams, venues and clubs.</p>
                 </div>
                 <div class="pricing-grid" id="pricing-grid"></div>
-            </div>
-        </section>
-
-        <section id="booking" class="section section-alt">
-            <div class="container">
-                <div class="section-head reveal">
-                    <p class="eyebrow">Reserve your spot</p>
-                    <h2>Book Your Training</h2>
-                    <p class="section-sub" id="booking-sub">Pick a service, choose a time, and confirm your booking.</p>
-                </div>
-
-                <div class="booking-layout">
-                    <form id="booking-form" class="booking-form card" novalidate>
-                        <div class="form-row">
-                            <div class="field">
-                                <label for="field-service">Service</label>
-                                <select id="field-service" name="service" required>
-                                    <option value="">Select a service</option>
-                                </select>
-                            </div>
-                            <div class="field">
-                                <label for="field-coach">Coach</label>
-                                <select id="field-coach" name="coach">
-                                    <option value="">Any coach</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="field">
-                                <label for="field-date">Date</label>
-                                <input id="field-date" type="date" required>
-                            </div>
-                            <div class="field">
-                                <label for="field-slot">Time</label>
-                                <div class="slots-wrap">
-                                    <div class="slots-grid" id="field-slots" role="group" aria-label="Available time slots"></div>
-                                    <div class="slots-legend" aria-hidden="true">
-                                        <span><i class="legend-dot"></i>Available</span>
-                                        <span><i class="legend-dot is-selected"></i>Selected</span>
-                                        <span><i class="legend-dot is-booked"></i>Booked</span>
-                                    </div>
-                                    <p class="field-hint" id="slots-hint">Select a service and date to see times.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="field">
-                                <label for="field-name">Full Name</label>
-                                <input id="field-name" type="text" name="name" placeholder="Your name" required>
-                            </div>
-                            <div class="field">
-                                <label for="field-phone">Phone</label>
-                                <input id="field-phone" type="tel" name="phone" placeholder="+20 100 000 0000" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="field">
-                                <label for="field-email">Email</label>
-                                <input id="field-email" type="email" name="email" placeholder="you@example.com" required>
-                            </div>
-                            <div class="field">
-                                <label for="field-notes">Notes <span class="optional">(optional)</span></label>
-                                <input id="field-notes" type="text" name="notes" placeholder="Anything we should know">
-                            </div>
-                        </div>
-
-                        <p class="field-error" id="booking-error" role="alert" hidden></p>
-
-                        <button id="booking-submit" class="btn btn-primary btn-lg" type="submit">Confirm Booking</button>
-                        <p class="field-hint" id="storage-hint">Your booking is saved in this browser.</p>
-                    </form>
-
-                    <aside class="schedule-panel card" aria-labelledby="schedule-title">
-                        <div class="schedule-head">
-                            <h3 id="schedule-title">Schedule</h3>
-                            <span class="schedule-count" id="schedule-count">0 booked</span>
-                        </div>
-                        <p class="field-hint">Bookings appear here and are used to block busy slots automatically.</p>
-                        <ul class="schedule-list" id="schedule-list"></ul>
-                        <p class="schedule-empty" id="schedule-empty">No bookings yet. Book your first session above.</p>
-                    </aside>
-                </div>
             </div>
         </section>
 
@@ -207,7 +203,7 @@
 
     <script src="assets/js/config.js"></script>
     <script src="assets/js/storage.js"></script>
-    <script src="assets/js/booking.js"></script>
+    <script src="assets/js/matches.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
